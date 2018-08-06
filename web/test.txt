@@ -1,0 +1,24 @@
+DROP TABLE radiotest
+CREATE TABLE insertdata (
+id int auto_increment primary key,
+Dancing varchar(100) NOT NULL,
+Reading varchar(100) NOT NULL,
+Singing varchar(100) NOT NULL,
+Programming varchar(100) NOT NULL,
+Sleeping varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+select * from insertdata
+DROP TABLE cargardata
+CREATE TABLE cargardata(
+id_data int auto_increment primary key,
+descripcion varchar(100) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SELECT id_data,descripcion FROM cargardata
+INSERT INTO cargardata (descripcion)VALUES ('Dancing');
+INSERT INTO cargardata (descripcion)VALUES ('Reading');
+INSERT INTO cargardata (descripcion)VALUES ('Singing');
+INSERT INTO cargardata (descripcion)VALUES ('Programming');
+INSERT INTO cargardata (descripcion)VALUES ('Sleeping');

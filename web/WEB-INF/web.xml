@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>cargaServlet</servlet-name>
+        <servlet-class>zone.website.controlador.cargaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>donwloadServlet</servlet-name>
+        <servlet-class>zone.website.controlador.donwloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>comboServlet</servlet-name>
+        <servlet-class>zone.website.controlador.checkboxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cargaServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>donwloadServlet</servlet-name>
+        <url-pattern>/donwload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>comboServlet</servlet-name>
+        <url-pattern>/checkbox</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>upload.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

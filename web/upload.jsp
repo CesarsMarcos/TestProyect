@@ -47,8 +47,8 @@
                         <button class="btn btn-success" id="insertar">GUARDAR</button>
                         <button class="btn btn-success" id="cargar" onclick="obtener(29)">CARGAR</button>
                     </div>
-
                 </div>
+
                 <div class="col col-md-4">
                     <form action="checkbox?accion=agregar" method="post">
                         <div class="checkbox-group"><input type="checkbox" name="hobbies" value="Dancing">Dancing</div>
@@ -59,10 +59,26 @@
                         <input type="submit" value="GUARDAR" class="btn btn-success">
                     </form>
                 </div>
-                <script src="jQuery/jQuery-2.1.3.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                <script src="js/datajs.js"></script>
+            </div>
 
-                </body>
-                </html>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Selecciona Equipo</label>
+                    <select class="form-control" id="cboEquipo" name="cboEquipo">
+
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label>Selecciona Hincha</label>
+                    <select class="form-control" id="cboHincha" name="cboHincha">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <script src="jQuery/jQuery-2.1.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/datajs.js"></script>
+
+    </body>
+</html>

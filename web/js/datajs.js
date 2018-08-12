@@ -6,6 +6,7 @@
 
 $(document).ready(function () {
     obtener_checkbox();
+    obtener_equipo();
 });
 
 $("#insertar").click(function () {
@@ -32,11 +33,7 @@ $("#insertar").click(function () {
             console.log("Un error ha ocurrido" + errorThrown);
         }
     });
-
-
 });
-
-
 function obtener_checkbox() {
     $.ajax({
         url: "checkbox?accion=lista",
@@ -52,12 +49,12 @@ function obtener_checkbox() {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log("Un error ha ocurrido: " + errorThrown);
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorhrown);
         }
-
     });
 }
-
-
 function obtener(id) {
 
     $('#data input[type="checkbox"]').prop("checked", false);
@@ -70,10 +67,10 @@ function obtener(id) {
 
             for (var dt in data)
             {
-                console.log(dt)
-                console.log(data[dt])
+                console.log(dt);
+                console.log(data[dt]);
                 if (data[dt] === 1) {
-                    $("#cbo" + dt).prop("checked", true)
+                    $("#cbo" + dt).prop("checked", true);
                 }
             }
 //            $.each(data, function () {
@@ -82,14 +79,51 @@ function obtener(id) {
 //            });
         },
         error: function (jqXHR, textStatus, errorhrown) {
-
-            console.log(jqXHR)
-            console.log(textStatus)
-            console.log(errorhrown)
-
-            console.log("Un error ha ocurrido")
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorhrown);
+            console.log("Un error ha ocurrido");
         }
-
-
     });
+}
+function obtener_equipo() {
+    
+    $.ajax({
+        type: 'GET',
+        url: "combo?accion=listaequipo",
+        dataType: 'json',
+        success: function (data) {
+            var items = '<option value=0 selected="" disabled="">--Elige un equipo--</option>';
+            $.each(data, function (key, value) {
+                items += '<option value="' + value.id + '">' + value.descripcion + '</option>';
+            });
+            $('#cboEquipo').html(items);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    });
+
+    $("#cboEquipo").change(function () {
+        $.ajax({
+            type: 'POST',
+            url: "combo?accion=listahincha",
+            data: {id: $(this).val()},
+            dataType: 'json',
+            success: function (data) {
+                $("#cboHincha").html('<option value=0 selected="" disabled="">--Elige un equipo--</option>');
+                $.each(data.datos, function (keys, values) {
+                    $("#cboHincha").append('<option value="' + values.ids + '">' + values.descripcion_hincha + '</option>');
+                });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
+    }
+    );
 }

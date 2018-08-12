@@ -9,8 +9,12 @@
         <servlet-class>zone.website.controlador.donwloadServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>comboServlet</servlet-name>
+        <servlet-name>checkboxServlet</servlet-name>
         <servlet-class>zone.website.controlador.checkboxServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>comboServlet</servlet-name>
+        <servlet-class>zone.website.controlador.comboServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>cargaServlet</servlet-name>
@@ -21,8 +25,12 @@
         <url-pattern>/donwload</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>comboServlet</servlet-name>
+        <servlet-name>checkboxServlet</servlet-name>
         <url-pattern>/checkbox</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>comboServlet</servlet-name>
+        <url-pattern>/combo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

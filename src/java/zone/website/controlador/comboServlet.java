@@ -38,44 +38,38 @@ public class comboServlet extends HttpServlet {
         }
     }
 
-    private void listacombo(HttpServletRequest request, HttpServletResponse response) {
+    private void listacombo(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = null;
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        out = response.getWriter();
+        Connection cn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            out = response.getWriter();
-            Connection cn = null;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            try {
-                String sql = "SELECT id_equipo,descripcion_equipo FROM equipo";
-                cn = conexion.getConexion();
-                ps = cn.prepareStatement(sql);
-                rs = ps.executeQuery();
-                JsonArray array = new JsonArray();
-                while (rs.next()) {
-                    JsonObject item = new JsonObject();
-                    item.addProperty("id", rs.getInt("id_equipo"));
-                    item.addProperty("descripcion", rs.getString("descripcion_equipo"));
-                    array.add(item);
-                }
-                out.print(array.toString());
-                out.flush();
-                out.close();
-
-            } catch (Exception ex) {
-                System.out.println("zone.website.controlador.solicitudServlet.listacombo() " + ex.getMessage());
-            } finally {
-                out.flush();
-                out.close();
+            String sql = "SELECT id_equipo,descripcion_equipo FROM equipo";
+            cn = conexion.getConexion();
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            JsonArray array = new JsonArray();
+            while (rs.next()) {
+                JsonObject item = new JsonObject();
+                item.addProperty("id", rs.getInt("id_equipo"));
+                item.addProperty("descripcion", rs.getString("descripcion_equipo"));
+                array.add(item);
             }
+            out.print(array.toString());
+            out.flush();
+            out.close();
 
-        } catch (IOException ex) {
-            Logger.getLogger(comboServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println("zone.website.controlador.solicitudServlet.listacombo() " + ex.getMessage());
         } finally {
             out.flush();
             out.close();
         }
+
     }
 
     private void listahincha(HttpServletRequest request, HttpServletResponse response) throws IOException {

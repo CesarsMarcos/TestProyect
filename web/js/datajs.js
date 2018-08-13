@@ -113,7 +113,7 @@ function obtener_equipo() {
             data: {id: $(this).val()},
             dataType: 'json',
             success: function (data) {
-                $("#cboHincha").html('<option value=0 selected="" disabled="">--Elige un equipo--</option>');
+                $("#cboHincha").html('<option value=0 selected="" disabled="">--Elige un Hincha--</option>');
                 $.each(data.datos, function (keys, values) {
                     $("#cboHincha").append('<option value="' + values.ids + '">' + values.descripcion_hincha + '</option>');
                 });

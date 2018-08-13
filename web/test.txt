@@ -22,3 +22,44 @@ INSERT INTO cargardata (descripcion)VALUES ('Reading');
 INSERT INTO cargardata (descripcion)VALUES ('Singing');
 INSERT INTO cargardata (descripcion)VALUES ('Programming');
 INSERT INTO cargardata (descripcion)VALUES ('Sleeping');
+
+use testupload
+
+CREATE TABLE equipo (
+id_equipo INT AUTO_INCREMENT NOT NULL,
+descripcion_equipo VARCHAR(50),
+PRIMARY KEY(id_equipo)
+)
+
+
+CREATE TABLE hincha(
+id_hincha INT AUTO_INCREMENT NOT NULL,
+descripcion_hincha VARCHAR(50),
+id_equipo INT,
+PRIMARY KEY(id_hincha),
+CONSTRAINT fl_eh FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo)
+)
+
+
+INSERT INTO equipo (descripcion_equipo) VALUES ('ALIZANZA LIMA');
+INSERT INTO equipo (descripcion_equipo) VALUES ('UNIVERSITARIO');
+INSERT INTO equipo (descripcion_equipo) VALUES ('CRISTAL');
+
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('CESAR_1',1);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('CESAR_2',1);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('CESAR_3',1);
+
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('DARCY_1',2);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('DARCY_2',2);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('DARCY_3',2);
+
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('ARTURO_1',3);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('ARTURO_2',3);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('ARTURO_3',3);
+
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('ANGEL_1',3);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('ANGEL_2',3);
+INSERT INTO hincha(descripcion_hincha,id_equipo) VALUES ('ANGELO_3',3);
+
+
+SELECT id_hincha,descripcion_hincha FROM hincha WHERE id_equipo=1
